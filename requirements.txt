@@ -1,0 +1,3 @@
+timm==0.4.12
+gym[accept-rom-license,atari]==0.21.0
+pyglet
