@@ -14,7 +14,7 @@ import os
 import faulthandler; faulthandler.enable()
 
 colab_drive_path = '/content/drive/MyDrive/636Homework/CSCE636-project-2022/saved_models/predictions.npy'
-local_path = '../saved_models/predictions.npy'
+local_path = '../models/'
 
 def get_args():
     parser = argparse.ArgumentParser(description=None)
@@ -26,11 +26,11 @@ def get_args():
     parser.add_argument('--max_episodes', default=100000, type=int, help='max episodes')
     parser.add_argument('--historic_num', default=3, type=int, help='how many past states used')
     parser.add_argument('--num_steps', default=300, type=int, help='maximum steps')
-    parser.add_argument('--save_dir', default='/content/drive/MyDrive/689Project/models/', type=str, help='maximum steps')
+    parser.add_argument('--save_dir', default=local_path, type=str, help='maximum steps')
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = get_args()
     env = gym.make("Breakout-v4")
-    train(args, env)   
+    train(args, env)
